@@ -14,7 +14,7 @@ const getDesignerById = async (req, res) => {
   try {
     const oneDesignerById = await designer.findUnique({
       where: {
-        id: parseInt(id),
+        id,
       },
     });
     res.json({ data: oneDesignerById });

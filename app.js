@@ -4,6 +4,7 @@ var logger = require("morgan");
 
 const designersRouter = require("./src/resources/designers/router");
 const eventsRouter = require("./src/resources/events/router");
+const guestRouter = require("./src/resources/guests/router");
 
 var app = express();
 
@@ -13,6 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/designers", designersRouter);
 app.use("/events", eventsRouter);
+app.use("/guests", guestRouter);
 
 app.all("*", (req, res) => {
   res.status(404).json({ msg: "You are at the wrong place!!!" });
